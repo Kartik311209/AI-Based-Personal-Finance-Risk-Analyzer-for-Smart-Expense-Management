@@ -1,6 +1,7 @@
 import streamlit as st
 from finance_analyzer import finance_app
 
+
 def show_dashboard(username, role):
     st.title("🤖 PyChamp Ultra AI Dashboard")
     st.success(f"Welcome {username} ({role}) 🚀")
@@ -21,4 +22,5 @@ def show_dashboard(username, role):
 
     elif menu == "🚪 Logout":
         st.session_state.logged_in = False
+        st.session_state.user = None   # ⭐ important
         st.rerun()
