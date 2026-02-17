@@ -32,4 +32,8 @@ def login_user(username, password):
     user = cursor.fetchone()
     conn.close()
     
-    return user
+
+        return {
+    "username": user[0],
+    "role": user[1]
+}
