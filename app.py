@@ -99,11 +99,12 @@ def render_login_page() -> None:
         """, unsafe_allow_html=True)
 
     with col2:
-        st.markdown('<div class="login-card">', unsafe_allow_html=True)
         st.markdown("""
+        <div class="login-card">
         <div style="margin-bottom:1.5rem;">
             <div style="font-size:1.2rem; font-weight:800; color:#f8fafc; font-family:'Outfit',sans-serif; margin-bottom:4px;">Welcome back</div>
             <div style="font-size:0.82rem; color:#475569; font-family:'Inter',sans-serif;">Sign in to your financial dashboard</div>
+        </div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -126,7 +127,7 @@ def render_login_page() -> None:
             if st.button("Create Account →", use_container_width=True, type="primary", key="register_btn"):
                 handle_registration(new_user, new_pass, confirm_pass, new_email, new_phone)
 
-        st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 def handle_login(username, password):
