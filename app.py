@@ -28,6 +28,65 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ── Injected first — scroll fix + hide Streamlit loader ─────────────────────
+st.markdown("""
+<style>
+/* ── SCROLL FIX ─────────────────────────────────────────────────────── */
+html, body {
+    overflow: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+.stApp {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+[data-testid="stAppViewContainer"] {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+[data-testid="stMain"] {
+    overflow-y: auto !important;
+    height: auto !important;
+}
+[data-testid="block-container"],
+.block-container,
+.main .block-container {
+    overflow-y: auto !important;
+    max-height: none !important;
+    height: auto !important;
+    padding-bottom: 5rem !important;
+}
+
+/* ── HIDE STREAMLIT LOADER & STATUS ────────────────────────────────── */
+/* Running indicator top-right */
+[data-testid="stStatusWidget"]      { display: none !important; visibility: hidden !important; }
+
+/* Skeleton loading grey boxes */
+[data-testid="stSkeleton"]          { display: none !important; }
+div[class*="skeleton"]              { display: none !important; }
+div[class*="Skeleton"]              { display: none !important; }
+
+/* Top linear progress loader bar */
+[data-testid="stSpinner"]           { display: none !important; }
+.stSpinner                          { display: none !important; }
+
+/* Prevent grey fade during rerun */
+[data-stale="true"]                 { opacity: 1 !important; transition: none !important; }
+.stApp[data-stale="true"]           { opacity: 1 !important; }
+
+/* Footer & menu */
+footer                              { display: none !important; }
+#MainMenu                           { display: none !important; }
+[data-testid="stDecoration"]        { display: none !important; }
+[data-testid="stToolbar"]           { display: none !important; }
+</style>
+""", unsafe_allow_html=True)
+
 def local_css(file_name):
     try:
         with open(file_name) as f:
