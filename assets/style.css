@@ -50,12 +50,32 @@ div[data-testid="collapsedControl"],
 /* ═══════════════════════════════════════════════════════════
    GLOBAL RESET & ANIMATED BACKGROUND
 ═══════════════════════════════════════════════════════════ */
+/* Allow full-page scrolling */
+html, body {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+}
+
 [data-testid="stAppViewContainer"] {
     background: #080d1a !important;
     font-family: 'Inter', 'Outfit', sans-serif !important;
     color: #e2e8f0 !important;
     position: relative;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    min-height: 100vh !important;
+}
+
+/* Streamlit main block — must allow vertical scroll */
+[data-testid="stMain"],
+[data-testid="block-container"],
+.main .block-container,
+.stMainBlockContainer {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: none !important;
+    height: auto !important;
 }
 
 /* Animated radial glow orbs */
