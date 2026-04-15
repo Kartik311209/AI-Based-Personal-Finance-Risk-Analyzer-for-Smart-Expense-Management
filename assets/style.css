@@ -1,6 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 /* ═══════════════════════════════════════════════════════════
+   HIDE STREAMLIT LOADING SKELETON & RUNNING INDICATOR
+   Prevents the grey flashing boxes on every page rerun
+═══════════════════════════════════════════════════════════ */
+
+/* Hide the "RUNNING..." status bar top-right */
+[data-testid="stStatusWidget"]          { display: none !important; }
+[data-testid="stStatusWidget"] *        { display: none !important; }
+
+/* Hide skeleton/shimmer loading placeholders */
+[data-testid="stSkeleton"]              { display: none !important; }
+div[class*="skeleton"]                  { display: none !important; }
+div[class*="Skeleton"]                  { display: none !important; }
+
+/* Hide the top linear progress bar that flashes on rerun */
+[data-testid="stSpinner"]               { display: none !important; }
+.stSpinner                              { display: none !important; }
+
+/* Prevent the whole page from going transparent/grey during rerun */
+[data-stale="true"]                     { opacity: 1 !important; transition: none !important; }
+[data-testid="stAppViewContainer"][data-stale="true"] { opacity: 1 !important; }
+
+/* Hide the "Made with Streamlit" footer */
+footer                                  { display: none !important; }
+footer + div                            { display: none !important; }
+[data-testid="stDecoration"]            { display: none !important; }
+#MainMenu                               { display: none !important; }
+
+/* ═══════════════════════════════════════════════════════════
    REMOVE NATIVE PAGE NAV (pages/ folder auto-detection)
 ═══════════════════════════════════════════════════════════ */
 [data-testid="stSidebarNav"],
